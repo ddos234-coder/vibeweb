@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커뮤니티 - AI바이브웹</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="logo"><a href="index.html" class="logo-link">AI바이브웹</a></h1>
+
+            <div class="header-right">
+                <!-- 로그인 아이콘 -->
+                <div class="auth-container">
+                    <a href="login.html" class="login-icon" id="loginIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>로그인</span>
+                    </a>
+                </div>
+
+                <!-- 햄버거 메뉴 버튼 -->
+                <button class="hamburger" aria-label="메뉴 열기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html#intro">소개</a></li>
+                    <li><a href="index.html#curriculum">커리큘럼</a></li>
+                    <li><a href="index.html#tech-stack">기술스택</a></li>
+                    <li><a href="index.html#effects">기대효과</a></li>
+                    <li><a href="board.html">커뮤니티</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="board-page">
+        <section class="board-header">
+            <h2>커뮤니티</h2>
+            <p>바이브코딩에 대한 자유로운 의견과 정보를 공유하는 공간입니다.</p>
+        </section>
+
+        <section class="board-content">
+            <!-- 게시판 상단 컨트롤 -->
+            <div class="board-controls">
+                <div class="search-box">
+                    <input type="text" placeholder="게시글 검색..." class="search-input">
+                    <button class="btn btn-secondary search-btn">검색</button>
+                </div>
+                <button class="btn btn-primary write-btn">글쓰기</button>
+            </div>
+
+            <!-- 게시글 목록 -->
+            <div class="board-list">
+                <table class="posts-table">
+                    <thead>
+                        <tr>
+                            <th class="col-number">번호</th>
+                            <th class="col-title">제목</th>
+                            <th class="col-author">작성자</th>
+                            <th class="col-date">작성일</th>
+                            <th class="col-views">조회</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 게시글 목록이 여기에 동적으로 로드됩니다 -->
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 40px; color: #999;">
+                                게시글을 불러오는 중...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 페이지네이션 -->
+            <div class="pagination">
+                <!-- 페이지네이션 버튼이 동적으로 생성됩니다 -->
+            </div>
+        </section>
+    </main>
+
+    <!-- 게시글 작성 모달 -->
+    <div class="modal" id="write-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>글쓰기</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="write-form">
+                    <div class="form-group">
+                        <label for="post-title">제목</label>
+                        <input type="text" id="post-title" class="form-input" placeholder="제목을 입력하세요" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content">내용</label>
+                        <textarea id="post-content" class="form-textarea" placeholder="내용을 입력하세요" rows="10" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary cancel-btn">취소</button>
+                        <button type="submit" class="btn btn-primary submit-btn">등록</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- 게시글 상세보기 모달 -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>게시글 상세</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="post-detail">
+                    <div class="post-detail-header">
+                        <h2 class="post-detail-title">게시글 제목이 여기에 표시됩니다</h2>
+                        <div class="post-detail-info">
+                            <span class="post-author">작성자: 홍길동</span>
+                            <span class="post-date">작성일: 2024-12-19</span>
+                            <span class="post-views">조회수: 42</span>
+                        </div>
+                    </div>
+                    <div class="post-detail-content">
+                        <p>게시글 내용이 여기에 표시됩니다.</p>
+                    </div>
+                    <div class="post-detail-actions">
+                        <button class="btn btn-secondary edit-btn">수정</button>
+                        <button class="btn btn-secondary delete-btn">삭제</button>
+                        <button class="btn btn-primary list-btn">목록</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AI바이브웹</h3>
+                    <p>바이브코딩으로 AI 시대의 실용적 개발 역량을 키워보세요.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>메뉴</h4>
+                    <ul>
+                        <li><a href="index.html#intro">소개</a></li>
+                        <li><a href="index.html#curriculum">커리큘럼</a></li>
+                        <li><a href="index.html#tech-stack">기술스택</a></li>
+                        <li><a href="index.html#effects">기대효과</a></li>
+                        <li><a href="board.html">커뮤니티</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>기술스택</h4>
+                    <p>HTML5, CSS3, JavaScript<br>
+                    Supabase, Vercel, GitHub</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI바이브웹. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 상단이동 버튼 -->
+    <button id="scroll-to-top" class="scroll-top-btn" aria-label="상단으로 이동">
+        ↑
+    </button>
+
+    <!-- Supabase CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- 인증 관리 스크립트 -->
+    <script src="js/auth.js"></script>
+
+    <!-- 게시판 관리 스크립트 -->
+    <script src="js/board.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# 운영체제
+.DS_Store
+Thumbs.db
+
+# 에디터/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 로그 파일
+*.log
+
+# 환경 변수 파일 (만약 나중에 사용할 경우)
+.env
+.env.local
+.env.production
+
+# 빌드 파일
+dist/
+build/
+
+# Node modules (만약 나중에 npm을 사용할 경우)
+node_modules/
+
+# 임시 파일
+*.tmp
+.cache/
+
+# 참고 자료 폴더 (업로드 불필요)
+ref/
+
+# 백업 파일
+*.bak
+*.backup
